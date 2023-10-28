@@ -1,6 +1,9 @@
 import sys
 import logging
+# If the module path is incorrect, ensure to provide the correct path
+# from src.logger import logging
 
+# This function generates the error message details
 def error_message_detail(error, error_detail: sys):
     _, _, exc_tb = error_detail.exc_info()
     file_name = exc_tb.tb_frame.f_code.co_filename
@@ -8,7 +11,7 @@ def error_message_detail(error, error_detail: sys):
         file_name, exc_tb.tb_lineno, str(error))
     return error_message
 
-
+# Custom Exception class
 class CustomException(Exception):
     def __init__(self, error_message, error_detail: sys):
         super().__init__(error_message)
@@ -16,6 +19,5 @@ class CustomException(Exception):
 
     def __str__(self):
         return self.error_message
-
 
  
